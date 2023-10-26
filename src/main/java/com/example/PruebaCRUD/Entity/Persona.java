@@ -1,27 +1,34 @@
-package com.example.PruebaCRUD.Entity;
+package com.example.PruebaCRUD.entity;
 
-import jakarta.persistence.*;
-
-@Entity
-@Table(name ="Humano")
 public class Persona {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
     private int id;
-    @Column(name = "nombre")
+
     private String nombre;
-    @Column(name = "apellido")
-    private String apellido;
-    @Column(name = "email")
-    private String email;
-    @Column(name = "edad")
+
+    private String genero;
+
+    private String identificacion;
+
     private int edad;
-    @Column(name = "sexo")
-    private String sexo;
-    @Column(name = "clave")
-    private int clave;
+
+    private String direccion;
+
+    private int telefono;
+
+    public Persona(int id, String nombre, String genero, String identificacion, int edad, String direccion, int telefono) {
+        this.id = id;
+        this.nombre = nombre;
+        this.genero = genero;
+        this.identificacion = identificacion;
+        this.edad = edad;
+        this.direccion = direccion;
+        this.telefono = telefono;
+    }
+
+    public Persona() {
+
+    }
 
     public int getId() {
         return id;
@@ -39,20 +46,20 @@ public class Persona {
         this.nombre = nombre;
     }
 
-    public String getApellido() {
-        return apellido;
+    public String getGenero() {
+        return genero;
     }
 
-    public void setApellido(String apellido) {
-        this.apellido = apellido;
+    public void setGenero(String apellido) {
+        this.genero = apellido;
     }
 
-    public String getEmail() {
-        return email;
+    public String getIdentificacion() {
+        return identificacion;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setIdentificacion(String email) {
+        this.identificacion = email;
     }
 
     public int getEdad() {
@@ -63,19 +70,19 @@ public class Persona {
         this.edad = edad;
     }
 
-    public String getSexo() {
-        return sexo;
+    public String getDireccion() {
+        return direccion;
     }
 
-    public void setSexo(String sexo) {
-        this.sexo = sexo;
+    public void setDireccion(String direccion) {
+        this.direccion = direccion;
     }
 
-    public int getClave() {
-        return clave;
+    public int gettTelefono() {
+        return telefono;
     }
 
-    public void setClave(int clave) {
-        this.clave = clave;
+    public void setTelefono(int telefono) {
+        this.telefono = telefono;
     }
 }

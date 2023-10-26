@@ -1,0 +1,28 @@
+version: '3'
+services:
+  my-spring-boot-app:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+    networks:
+      - my-network
+    depends_on:
+      - mysql
+
+  mysql:
+    image: mysql:5.7
+    container_name: my-mysql-container
+    environment:
+      MYSQL_ROOT_PASSWORD: my-secret-pw
+      MYSQL_DATABASE: testDB
+      MYSQL_USER: usertest
+      MYSQL_PASSWORD: userpass
+    ports:
+      - "3306:3306"
+    volumes:
+      - /new/mysql/data:/var/lib/mysql
+
+networks:
+  my-network:
